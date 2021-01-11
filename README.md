@@ -18,3 +18,11 @@ npm start
 To increase the rate limit when running the project locally, please rename the .env.example file to .env and add your own Github Client ID and Client secret. The solution also works without this step.
 
 Please read more details about this subject here: [Github Search API Rate Limit](https://docs.github.com/en/free-pro-team@latest/rest/reference/search#rate-limit)
+
+## Live URL
+
+The component can also be tested here: https://github-user-search-assignment.netlify.app/
+
+### Note
+
+I have not set the environment variables in Netlify so the late limit here will be 10 requests per minute.
