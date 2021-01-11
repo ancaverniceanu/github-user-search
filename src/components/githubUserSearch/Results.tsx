@@ -6,9 +6,16 @@ interface Props {
   loadingError: Number;
   users: UserInterface[];
   searchText: string;
+  selectedUserId: string;
 }
 
-const Results = ({ users, loading, loadingError, searchText }: Props) => {
+const Results = ({
+  users,
+  loading,
+  loadingError,
+  searchText,
+  selectedUserId,
+}: Props) => {
   const renderResults = () => {
     if (loading) {
       return <>Loading...</>;
@@ -28,11 +35,17 @@ const Results = ({ users, loading, loadingError, searchText }: Props) => {
     }
 
     return (
-      <div role="listbox">
+      <ul role="listbox">
         {users.map((user: UserInterface) => {
-          return <ResultItem key={user.id} user={user} />;
+          return (
+            <ResultItem
+              key={user.id}
+              user={user}
+              selected={selectedUserId === user.id}
+            />
+          );
         })}
-      </div>
+      </ul>
     );
   };
 

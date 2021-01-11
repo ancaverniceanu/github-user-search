@@ -3,6 +3,7 @@ interface Props {
   placeholder: string;
   searchText: string;
   onSearchTextChange: (item: string) => void;
+  onKeyNavigation: (item: React.KeyboardEvent<HTMLInputElement>) => void;
 }
 
 const Input = ({
@@ -10,6 +11,7 @@ const Input = ({
   placeholder,
   searchText,
   onSearchTextChange,
+  onKeyNavigation,
 }: Props) => {
   return (
     <>
@@ -19,7 +21,8 @@ const Input = ({
         value={searchText}
         autoComplete="off"
         placeholder={placeholder}
-        onChange={(e) => onSearchTextChange(e.target.value)}
+        onChange={(event) => onSearchTextChange(event.target.value)}
+        onKeyDown={(event) => onKeyNavigation(event)}
         id="search"
       />
     </>
