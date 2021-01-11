@@ -1,5 +1,6 @@
 import ResultItem from './ResultItem';
 import { UserInterface } from './';
+import { SearchResults, SearchResultsList } from './style';
 
 interface Props {
   loading: boolean;
@@ -22,6 +23,7 @@ const Results = ({
     }
 
     if (loadingError) {
+      // TODO: check for other erros
       switch (loadingError) {
         case 403:
           return 'You have reached the API rate limit. Please retry in 1 minute.';
@@ -35,7 +37,7 @@ const Results = ({
     }
 
     return (
-      <ul role="listbox">
+      <SearchResultsList role="listbox">
         {users.map((user: UserInterface) => {
           return (
             <ResultItem
@@ -45,11 +47,11 @@ const Results = ({
             />
           );
         })}
-      </ul>
+      </SearchResultsList>
     );
   };
 
-  return <div className="wrapper">{renderResults()}</div>;
+  return <SearchResults>{renderResults()}</SearchResults>;
 };
 
 export default Results;

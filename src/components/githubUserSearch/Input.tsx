@@ -1,9 +1,11 @@
+import { SearchInput } from './style';
+
 interface Props {
   label: string;
   placeholder: string;
   searchText: string;
-  onSearchTextChange: (item: string) => void;
-  onKeyNavigation: (item: React.KeyboardEvent<HTMLInputElement>) => void;
+  onSearchTextChange: (event: string) => void;
+  onKeyNavigation: (event: React.KeyboardEvent<HTMLInputElement>) => void;
 }
 
 const Input = ({
@@ -16,7 +18,7 @@ const Input = ({
   return (
     <>
       <label htmlFor="search">{label}</label>
-      <input
+      <SearchInput
         type="search"
         value={searchText}
         autoComplete="off"

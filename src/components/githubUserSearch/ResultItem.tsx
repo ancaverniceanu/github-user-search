@@ -1,4 +1,5 @@
 import { UserInterface } from './';
+import { SearchResultsListItem } from './style';
 
 interface Props {
   user: UserInterface;
@@ -10,12 +11,12 @@ const ResultItem = ({
   selected,
 }: Props) => {
   return (
-    <li role="option" aria-selected={selected}>
+    <SearchResultsListItem role="option" aria-selected={selected}>
       <a href={html_url}>
-        <img src={avatar_url} width="20" alt={login} />
+        <img src={avatar_url} alt={login} />
         {login}
       </a>
-    </li>
+    </SearchResultsListItem>
   );
 };
 

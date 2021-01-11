@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { searchUsers } from './services/githubService';
 import Input from './Input';
 import Results from './Results';
+import { SearchWrapper } from './style';
 
 export interface UserInterface {
   id: string;
@@ -35,8 +36,8 @@ const Index = () => {
     }
   };
 
-  const onKeyNavigation = (event: any) => {
-    const key = event.code;
+  const onKeyNavigation = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    const { key } = event;
     const totalUsers = users.length;
 
     if (selectedUser === null) {
@@ -53,7 +54,7 @@ const Index = () => {
 
     if (key === 'Enter' && selectedUser) {
       event.preventDefault();
-      window.open(selectedUser.html_url, '_blank');
+      window.location.href = selectedUser.html_url;
     }
   };
 
@@ -87,7 +88,7 @@ const Index = () => {
   }, [users, position, selectedUser]);
 
   return (
-    <div>
+    <SearchWrapper>
       <Input
         label="Search for a GitHub user"
         placeholder="Type an username..."
@@ -104,7 +105,7 @@ const Index = () => {
           selectedUserId={selectedUserId}
         />
       )}
-    </div>
+    </SearchWrapper>
   );
 };
 

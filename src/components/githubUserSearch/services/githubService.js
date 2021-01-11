@@ -1,6 +1,9 @@
 import axios from 'axios';
 
-const { REACT_APP_GITHUB_CLIENT_ID, REACT_APP_GITHUB_CLIENT_SECRET } = process.env
+const {
+  REACT_APP_GITHUB_CLIENT_ID,
+  REACT_APP_GITHUB_CLIENT_SECRET,
+} = process.env;
 
 const axiosConfig = {
   baseURL: 'https://api.github.com/',
